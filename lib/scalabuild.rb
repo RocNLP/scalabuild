@@ -23,11 +23,13 @@ module Scalabuild
   end
 
   module_function
-  def writeSbt(args) //lines that have a template that is not overridden are ignored.  As a switch, just include a key with empty value
-    File.open(File.dirname(__FILE__)+"/build.sbt.template", r) do |f|
+  def writeSbt(args) #lines that have a template that is not overridden are ignored.  As a switch, just include a key with empty value
+    File.open(File.dirname(__FILE__)+"/build.sbt.template", 'r') do |f|
       f.each_line do |line|
-        keyVal = line.split("#", 2)
-        print keyVal[1].gsub(/#{keyVal[0]}/, args[keyVal[0])
+        keyVal = line.split("\#", 2)
+	if args[keyVal[0]] != nil
+          print keyVal[1].gsub(/\#\{#{keyVal[0]}\}/, args[keyVal[0]])
+	end
       end
     end
 
