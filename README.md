@@ -1,6 +1,10 @@
-# Write a README
+# scalabuild
 
-TODO: Write a project description
+1. clone this repository
+2. install the gem with `sudo rake install`
+3. `mkdir mydir; cd mydir; generateScala.rb;`
+4. because I'm lazy, I still haven't made options, so open `build.sbt` and change the name
+5. yeah its really really simple.  I'll add more things to it.
 
 ## Contributing
 
